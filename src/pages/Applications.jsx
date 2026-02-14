@@ -1,9 +1,30 @@
+import residential from "../assets/applications/residential.jpg";
+import commercial from "../assets/applications/commercial.jpg";
+import industrial from "../assets/applications/industrial.jpg";
+import agriculture from "../assets/applications/agriculture.jpg";
+
 export default function Applications() {
   const apps = [
-    { title: "Residential", desc: "Homes & Apartments" },
-    { title: "Commercial", desc: "Offices & Retail Spaces" },
-    { title: "Industrial", desc: "Factories & Warehouses" },
-    { title: "Agriculture", desc: "Farms & Irrigation Systems" },
+    {
+      title: "Residential",
+      desc: "Homes & Apartments",
+      image: residential,
+    },
+    {
+      title: "Commercial",
+      desc: "Offices & Retail Spaces",
+      image: commercial,
+    },
+    {
+      title: "Industrial",
+      desc: "Factories & Warehouses",
+      image: industrial,
+    },
+    {
+      title: "Agriculture",
+      desc: "Farms & Irrigation Systems",
+      image: agriculture,
+    },
   ];
 
   return (
@@ -17,14 +38,22 @@ export default function Applications() {
           {apps.map((app, i) => (
             <div
               key={i}
-              className="border rounded-xl p-6 text-center hover:shadow-lg transition bg-white"
+              className="bg-white rounded-xl shadow hover:shadow-lg transition overflow-hidden"
             >
-              <h3 className="text-xl font-semibold mb-2">
-                {app.title}
-              </h3>
-              <p className="text-gray-600">
-                {app.desc}
-              </p>
+              <img
+                src={app.image}
+                alt={app.title}
+                className="h-40 w-full object-cover"
+              />
+
+              <div className="p-5 text-center">
+                <h3 className="text-xl font-semibold mb-2">
+                  {app.title}
+                </h3>
+                <p className="text-gray-600">
+                  {app.desc}
+                </p>
+              </div>
             </div>
           ))}
         </div>
